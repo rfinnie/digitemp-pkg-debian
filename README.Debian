@@ -1,0 +1,14 @@
+digitemp for Debian
+-------------------
+
+In order to use this software as a normal user, you have to add the
+desired users to the group dialout, which grants that user access
+to the serial ports.
+
+This debian release includes three executables from upstream: 
+digitemp_DS9097, digitemp_DS9097U and digitemp_DS2490 in order 
+to support all adapters: passive serial, active serial (DS9097U)
+and USB (DS2490). It does not install any executable named digitemp
+as it used in older upstream versions.
+
+ -- Jesús Roncero <jesus@roncero.org>, Wed, 01 Sep 2004 01:45:00 +0200

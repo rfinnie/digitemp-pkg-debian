@@ -1,0 +1,5 @@
+# watch control file for uscan to check for upstream updates and more.
+# Site          Directory               Pattern                 Version Script
+# sunsite.unc.edu       /pub/Linux/Incoming     digitemp-(.*)\.tar\.gz  debian  uupdate
+version=2
+http://www.digitemp.com/software/linux/digitemp-(\d+\.\d+\.\d+)\.tar\.gz  debian uupdate

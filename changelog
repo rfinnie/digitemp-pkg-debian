@@ -1,0 +1,18 @@
+digitemp (3.3.2-2) unstable; urgency=low
+
+  * Added digitemp_DS2490. Patch created by Mikael Mikael Magnusson
+    (Closes: bug#269246).
+  * Build digitemp for serial and usb adapters in separate build directories,
+  since they need different CFLAGS. Thanks to Mikael Magnusson.
+  * Flush output after each line. Patch added by Mikael Magnusson.
+  * Updated suggests to mysql-server (Closes: bug#269207).
+  * Updated watch file.
+
+ -- Jesus Roncero <jesus@roncero.org>  Wed, 01 Sep 2004 01:34:37 +0200
+
+digitemp (3.3.2-1) unstable; urgency=low
+
+  * Initial release (Closes: bug#226890).
+
+ -- Jesus Roncero <jesus@roncero.org>  Fri, 23 Jul 2004 10:27:19 +0200
+

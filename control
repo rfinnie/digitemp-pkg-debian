@@ -1,0 +1,21 @@
+Source: digitemp
+Section: electronics
+Priority: optional
+Maintainer: Jesus Roncero <jesus@roncero.org>
+Build-Depends: debhelper (>= 4.0.0), liblockdev1-dev, libusb-dev
+Standards-Version: 3.6.1
+
+Package: digitemp
+Architecture: any
+Suggests: rrdtool, python, mysql-server
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Program to read from temperature sensors in a 1-Wire net
+ Digitemp is a program that reads data coming from a 1-Wire network using
+ a passive adapter (DS9097) or the newer active adapter (DS9097U), 
+ connected to a serial port. It also supports reading from USB adaptors 
+ like the DS2490. Basically it reads temperature sensors, but  others 
+ are supported, like a humidity sensor.
+ .
+ Digitemp also supports branched networks using DS2409 couplers.
+ .
+ Homepage: http://www.digitemp.com

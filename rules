@@ -1,0 +1,106 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+
+
+
+CFLAGS = -Wall -g
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+	INSTALL_PROGRAM += -s
+endif
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+
+	touch configure-stamp
+
+
+build: build-stamp
+
+build-stamp: configure-stamp 
+	dh_testdir
+
+	mkdir -p build-serial/{src,userial/ds9097,userial/ds9097u}
+	(cd build-serial; $(MAKE) -f ../Makefile srcdir=.. VPATH=.. all)
+	
+	mkdir -p build-usb/{src,userial/ds2490}       
+	(cd build-usb; $(MAKE) -f ../Makefile srcdir=.. VPATH=.. ds2490)
+
+	#/usr/bin/docbook-to-man debian/digitemp.sgml > digitemp.1
+
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp configure-stamp
+
+	-$(MAKE) clean
+	-$(RM) -r build-serial
+	-$(RM) -r build-usb
+
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+	(cd build-serial; $(MAKE) -f ../Makefile srcdir=.. VPATH=.. install DESTDIR=$(CURDIR)/debian/tmp)
+
+	(cd build-usb; install digitemp_DS2490 $(CURDIR)/debian/tmp/usr/bin)
+
+
+# Build architecture-independent files here.
+binary-indep: build install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs ChangeLog
+	dh_installdocs
+	dh_installexamples
+#	dh_install
+#	dh_installmenu
+#	dh_installdebconf	
+#	dh_installlogrotate
+#	dh_installemacsen
+#	dh_installpam
+#	dh_installmime
+#	dh_installinit
+#	dh_installcron
+#	dh_installinfo
+	dh_installman digitemp.1
+	ln -s digitemp.1.gz debian/tmp/usr/share/man/man1/digitemp_DS9097.1.gz
+	ln -s digitemp.1.gz debian/tmp/usr/share/man/man1/digitemp_DS9097U.1.gz
+	ln -s digitemp.1.gz debian/tmp/usr/share/man/man1/digitemp_DS2490.1.gz
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+#	dh_perl
+#	dh_python
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb -p digitemp
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure
