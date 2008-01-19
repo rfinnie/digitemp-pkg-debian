@@ -32,10 +32,10 @@ build: build-stamp
 build-stamp: configure-stamp 
 	dh_testdir
 
-	mkdir -p build-serial/{src,userial/ds9097,userial/ds9097u}
+	mkdir -p build-serial/src build-serial/userial/ds9097 build-serial/userial/ds9097u
 	(cd build-serial; $(MAKE) -f ../Makefile srcdir=.. VPATH=.. all)
 	
-	mkdir -p build-usb/{src,userial/ds2490}       
+	mkdir -p build-usb/src build-usb/userial/ds2490
 	(cd build-usb; $(MAKE) -f ../Makefile srcdir=.. VPATH=.. ds2490)
 
 	#/usr/bin/docbook-to-man debian/digitemp.sgml > digitemp.1

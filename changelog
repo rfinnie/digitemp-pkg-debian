@@ -1,3 +1,10 @@
+digitemp (3.3.2-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Removed bashisms from debian/rules (use of {,}). Closes: #315599, #379489.
+
+ -- Lucas Nussbaum <lucas@lucas-nussbaum.net>  Sat, 19 Jan 2008 17:15:48 +0100
+
 digitemp (3.3.2-2) unstable; urgency=low
 
   * Added digitemp_DS2490. Patch created by Mikael Mikael Magnusson
