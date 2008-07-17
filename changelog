@@ -1,3 +1,21 @@
+digitemp (3.5.0ds1-1) unstable; urgency=low
+
+  * Taking over Jesus Roncero in maintainership with his permission
+  * New upstream release (Closes: #474031)
+    (repackaged as the upstream tarball contained the compiled programs, also
+    for Windows. The resulting .tar.gz is about half of the original size)
+  * Debian packaging remade from scratch
+    - Acknowledge NMU (Closes: #461576)
+    - debhelper compatibility switched to 7 (previous level undefined)
+  * formatting issues in the digitemp.1 manpage (Closes: #350809)
+    (also fixes a lintian's warning, thanks to Nicolas François for the patch)
+  * Bumped standard version to 3.8.0
+    - debian/control: Moved Homepage field from description to source section
+    - updated DEB_BUILD_OPTIONS support to debian/rules
+    - adjusted Makefile so we can tweak CFLAGS from debian/rules
+
+ -- Riccardo Stagni <unriccio@email.it>  Fri, 18 Jul 2008 00:33:07 +0200
+
 digitemp (3.3.2-2.1) unstable; urgency=low
 
   * Non-maintainer upload.
@@ -10,7 +28,7 @@ digitemp (3.3.2-2) unstable; urgency=low
   * Added digitemp_DS2490. Patch created by Mikael Mikael Magnusson
     (Closes: bug#269246).
   * Build digitemp for serial and usb adapters in separate build directories,
-  since they need different CFLAGS. Thanks to Mikael Magnusson.
+    since they need different CFLAGS. Thanks to Mikael Magnusson.
   * Flush output after each line. Patch added by Mikael Magnusson.
   * Updated suggests to mysql-server (Closes: bug#269207).
   * Updated watch file.

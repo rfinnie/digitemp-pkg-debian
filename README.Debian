@@ -11,4 +11,4 @@ to support all adapters: passive serial, active serial (DS9097U)
 and USB (DS2490). It does not install any executable named digitemp
 as it used in older upstream versions.
 
- -- Jesús Roncero <jesus@roncero.org>, Wed, 01 Sep 2004 01:45:00 +0200
+ -- JesÃºs Roncero <jesus@roncero.org>, Wed, 01 Sep 2004 01:45:00 +0200
