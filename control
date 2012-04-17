@@ -1,10 +1,11 @@
 Source: digitemp
 Section: electronics
 Priority: optional
-Maintainer: Riccardo Stagni <unriccio@email.it>
-Build-Depends: debhelper (>= 7), liblockdev1-dev, libusb-dev
-Standards-Version: 3.8.0
+Maintainer: Ryan Finnie <ryan@finnie.org>
+Build-Depends: debhelper (>= 7.0.50~), liblockdev1-dev, libusb-dev
+Standards-Version: 3.9.3
 Homepage: http://www.digitemp.com
+XS-Dm-Upload-Allowed: yes
 
 Package: digitemp
 Architecture: any

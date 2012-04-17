@@ -1,0 +1,30 @@
+Change /dev max name length from 40 (39) chars to 1024 (1023)
+Patch author: Ryan Finnie <ryan@finnie.org>
+
+Permanent mappings in /dev can become quite long, for example:
+
+/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A800bZvc-if00-port0
+
+This patch increases the maximum usable length to 1023 character.
+
+Originally reported to Ubuntu:
+    https://bugs.launchpad.net/bugs/978294
+
+Will be sent upstream.
+
+diff -ruN digitemp-3.5.0ds1.orig/src/digitemp.c digitemp-3.5.0ds1/src/digitemp.c
+--- digitemp-3.5.0ds1.orig/src/digitemp.c	2006-12-30 07:12:25.000000000 -0800
++++ digitemp-3.5.0ds1/src/digitemp.c	2012-04-10 11:50:23.598245196 -0700
+@@ -148,9 +148,9 @@
+ 
+ extern const char dtlib[];			/* Library Used            */
+  
+-char	serial_port[40],                        /* Path to the serial port */
+-        tmp_serial_port[40], 
+-	serial_dev[40],				/* Device name without /dev/ */
++char	serial_port[1024],                      /* Path to the serial port */
++        tmp_serial_port[1024],
++	serial_dev[1024],			/* Device name without /dev/ */
+         log_file[1024],                         /* Path to the log file    */
+         tmp_log_file[1024],
+         temp_format[80],                        /* Format for temperature readings	*/

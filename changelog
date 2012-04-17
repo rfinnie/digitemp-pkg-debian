@@ -1,3 +1,18 @@
+digitemp (3.5.0ds1-2) unstable; urgency=low
+
+  * Change maintainer to Ryan Finnie, with the blessing of Riccardo 
+    Stagni (Closes: #668334)
+  * Bump standards version to 3.9.3, Lintian cleanup
+    - Change "dh_clean -k" to "dh_prep"
+    - Add stub build-arch and build-indep targets
+    - Spelling, manpage corrections
+  * Increase length of /dev path to 1023 chars (LP: #978294)
+  * Update debian/watch
+  * Migrate to unified debhelper
+  * Migrate to source format 3.0 (quilt)
+
+ -- Ryan Finnie <ryan@finnie.org>  Mon, 16 Apr 2012 20:31:27 -0700
+
 digitemp (3.5.0ds1-1) unstable; urgency=low
 
   * Taking over Jesus Roncero in maintainership with his permission
