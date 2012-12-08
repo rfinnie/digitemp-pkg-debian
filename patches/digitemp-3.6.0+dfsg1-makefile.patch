@@ -1,0 +1,47 @@
+Debian-specific Makefile adjustments
+Patch author: Ryan Finnie <ryan@finnie.org>
+
+diff -ru digitemp-3.6.0.dfsg.1.orig/Makefile digitemp-3.6.0.dfsg.1/Makefile
+--- digitemp-3.6.0.dfsg.1.orig/Makefile	2008-08-28 14:37:00.000000000 -0700
++++ digitemp-3.6.0.dfsg.1/Makefile	2012-12-08 14:11:58.369579279 -0800
+@@ -11,8 +11,11 @@
+ 
+ VERSION = 3.6.0
+ 
+-CC	= gcc
+-CFLAGS	= -I./src -I./userial -O2 -Wall # -g
++SRCDIR	= .
++VPATH	= $(SRCDIR)
++
++CFLAGS	= -I$(SRCDIR)/src -I$(SRCDIR)/userial
++CFLAGS	+= $(DEBCFLAGS)
+ 
+ OBJS		=	src/digitemp.o src/device_name.o src/ds2438.o
+ HDRS		= 	src/digitemp.h src/device_name.h
+@@ -116,13 +119,13 @@
+ 
+ # Build the Linux executable
+ ds9097:		$(OBJS) $(HDRS) $(ONEWIREOBJS) $(ONEWIREHDRS) $(DS9097OBJS)
+-		$(CC) $(OBJS) $(ONEWIREOBJS) $(DS9097OBJS) -o digitemp_DS9097 $(LIBS)
++		$(CC) $(OBJS) $(ONEWIREOBJS) $(DS9097OBJS) -o digitemp_DS9097 $(LDFLAGS) $(LIBS)
+ 
+ ds9097u:	$(OBJS) $(HDRS) $(ONEWIREOBJS) $(ONEWIREHDRS) $(DS9097UOBJS)
+-		$(CC) $(OBJS) $(ONEWIREOBJS) $(DS9097UOBJS) -o digitemp_DS9097U $(LIBS)
++		$(CC) $(OBJS) $(ONEWIREOBJS) $(DS9097UOBJS) -o digitemp_DS9097U $(LDFLAGS) $(LIBS)
+ 
+ ds2490:		$(OBJS) $(HDRS) $(ONEWIREOBJS) $(ONEWIREHDRS) $(DS2490OBJS)
+-		$(CC) $(OBJS) $(ONEWIREOBJS) $(DS2490OBJS) -o digitemp_DS2490 $(LIBS)
++		$(CC) $(OBJS) $(ONEWIREOBJS) $(DS2490OBJS) -o digitemp_DS2490 $(LDFLAGS) $(LIBS)
+ 
+ 
+ # Clean up the object files and the sub-directory for distributions
+@@ -132,6 +135,9 @@
+ 		rm -f core *.asc 
+ 		rm -f perl/*~ rrdb/*~ .digitemprc digitemp-$(VERSION)-1.spec
+ 		rm -rf digitemp-$(VERSION)
++		rm -f digitemp_DS9097
++		rm -f digitemp_DS9097U
++		rm -f digitemp_DS2490
+ 
+ # Sign the binaries using gpg (www.gnupg.org)
+ # My key is available from www.brianlane.com

@@ -1,0 +1,27 @@
+Correct errors caught by -Werror=format-security
+Patch author: Ryan Finnie <ryan@finnie.org>
+
+diff -ru digitemp-3.6.0.dfsg.1.orig/src/digitemp.c digitemp-3.6.0.dfsg.1/src/digitemp.c
+--- digitemp-3.6.0.dfsg.1.orig/src/digitemp.c	2008-08-27 21:42:48.000000000 -0700
++++ digitemp-3.6.0.dfsg.1/src/digitemp.c	2012-12-08 14:27:15.646010399 -0800
+@@ -586,7 +586,7 @@
+       perror("Error loging to logfile");
+     close( fd );
+   } else {
+-    printf( line );
++    printf( "%s",line );
+   }
+   return 0;
+ }  
+diff -ru digitemp-3.6.0.dfsg.1.orig/userial/ioutil.c digitemp-3.6.0.dfsg.1/userial/ioutil.c
+--- digitemp-3.6.0.dfsg.1.orig/userial/ioutil.c	2007-06-07 14:25:58.000000000 -0700
++++ digitemp-3.6.0.dfsg.1/userial/ioutil.c	2012-12-08 14:24:05.357916698 -0800
+@@ -86,7 +86,7 @@
+    // remember the start length
+    deflen = strlen(buf);
+    if (deflen < 80)
+-      sprintf(defbuf,buf);
++      sprintf(defbuf,"%s",buf);
+    else
+       defbuf[0] = 0;
+ 

@@ -5,7 +5,8 @@ Maintainer: Ryan Finnie <ryan@finnie.org>
 Build-Depends: debhelper (>= 7.0.50~), liblockdev1-dev, libusb-dev
 Standards-Version: 3.9.3
 Homepage: http://www.digitemp.com
-XS-Dm-Upload-Allowed: yes
+Vcs-Browser: https://code.launchpad.net/~fo0bar/digitemp/digitemp-pkg-debian
+Vcs-Bzr: http://bazaar.launchpad.net/~fo0bar/digitemp/digitemp-pkg-debian
 
 Package: digitemp
 Architecture: any

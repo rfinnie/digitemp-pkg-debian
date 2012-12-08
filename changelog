@@ -1,3 +1,13 @@
+digitemp (3.6.0+dfsg1-1) UNRELEASED; urgency=low
+
+  * Digitemp 3.6.0 (binaries removed)
+  * Add hardening compilation
+  * Add README.source, explaining tarball rebuild
+  * Remove XS-Dm-Upload-Allowed (no longer used)
+  * Version control debian/ (bzr)
+
+ -- Ryan Finnie <ryan@finnie.org>  Sat, 08 Dec 2012 13:36:06 -0800
+
 digitemp (3.5.0ds1-2) unstable; urgency=low
 
   * Change maintainer to Ryan Finnie, with the blessing of Riccardo 

@@ -4,15 +4,20 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
+CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
+LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
+
 %:
 	dh $@
 
 override_dh_auto_build:
 	mkdir -p build-serial/src build-serial/userial/ds9097 build-serial/userial/ds9097u
-	$(MAKE) -C build-serial -f ../Makefile DEBCFLAGS="$(CFLAGS)" SRCDIR=.. ds9097 ds9097u
+	$(MAKE) -C build-serial -f ../Makefile DEBCFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" LDFLAGS="$(LDFLAGS)" SRCDIR=.. ds9097 ds9097u
 
 	mkdir -p build-usb/src build-usb/userial/ds2490
-	$(MAKE) -C build-usb    -f ../Makefile DEBCFLAGS="$(CFLAGS)" SRCDIR=.. ds2490
+	$(MAKE) -C build-usb    -f ../Makefile DEBCFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" LDFLAGS="$(LDFLAGS)" SRCDIR=.. ds2490
 
 override_dh_auto_install:
 	install -m 0755 -d debian/digitemp/usr/bin
