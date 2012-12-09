@@ -1,4 +1,6 @@
+digitemp-3.6.0+dfsg1-banner-version.patch
 digitemp-3.6.0+dfsg1-code-spelling.patch
 digitemp-3.6.0+dfsg1-devlength.patch
 digitemp-3.6.0+dfsg1-makefile.patch
+digitemp-3.6.0+dfsg1-flush-stdout.patch
 digitemp-3.6.0+dfsg1-format-security.patch

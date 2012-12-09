@@ -1,25 +1,17 @@
 Correct errors caught by -Werror=format-security
 Patch author: Ryan Finnie <ryan@finnie.org>
 
------
-
-Flush logs when running non-interactive
-Patch author: Alexander Inyukhin <shurick@sectorb.msk.ru>
-
-See http://bugs.debian.org/691069
-
 --- a/src/digitemp.c
 +++ b/src/digitemp.c
-@@ -586,7 +586,8 @@
+@@ -586,7 +586,7 @@
        perror("Error loging to logfile");
      close( fd );
    } else {
 -    printf( line );
 +    printf( "%s",line );
-+    fflush( stdout );
+     fflush( stdout );
    }
    return 0;
- }  
 --- a/userial/ioutil.c
 +++ b/userial/ioutil.c
 @@ -86,7 +86,7 @@
