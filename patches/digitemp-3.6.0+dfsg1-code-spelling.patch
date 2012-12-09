@@ -12,9 +12,15 @@ Currently found:
   * arguements -> arguments
   * GNU Public License -> GNU General Public License
 
-diff -ruN digitemp-3.6.0.dfsg.1.orig/digitemp.1 digitemp-3.6.0.dfsg.1/digitemp.1
---- digitemp-3.6.0.dfsg.1.orig/digitemp.1	2008-08-28 14:11:50.000000000 -0700
-+++ digitemp-3.6.0.dfsg.1/digitemp.1	2012-12-08 13:54:27.997166589 -0800
+-----
+
+Fix incorrect version number in banner
+Patch author: Ryan Finnie <ryan@finnie.org>
+
+"3.5.0" is currently hard-coded (and incorrect)
+
+--- a/digitemp.1
++++ b/digitemp.1
 @@ -104,7 +104,7 @@
      2 = One line per sample, elapsed time, temperature in C
      3 = Same as #2, except temperature is in F
@@ -24,9 +30,8 @@ diff -ruN digitemp-3.6.0.dfsg.1.orig/digitemp.1 digitemp-3.6.0.dfsg.1/digitemp.1
  spreadsheet or other graphing software.
  .PP
  The format string uses strftime tokens plus 5 special ones for
-diff -ruN digitemp-3.6.0.dfsg.1.orig/src/digitemp.c digitemp-3.6.0.dfsg.1/src/digitemp.c
---- digitemp-3.6.0.dfsg.1.orig/src/digitemp.c	2008-08-27 21:42:48.000000000 -0700
-+++ digitemp-3.6.0.dfsg.1/src/digitemp.c	2012-12-08 13:54:16.617161520 -0800
+--- a/src/digitemp.c
++++ b/src/digitemp.c
 @@ -196,8 +196,8 @@
    printf(BANNER_2);
    printf(BANNER_3, dtlib );		         /* Report Library version */
@@ -56,14 +61,15 @@ diff -ruN digitemp-3.6.0.dfsg.1.orig/src/digitemp.c digitemp-3.6.0.dfsg.1/src/di
      usage();
      return -1;
    }
-diff -ruN digitemp-3.6.0.dfsg.1.orig/src/digitemp.h digitemp-3.6.0.dfsg.1/src/digitemp.h
---- digitemp-3.6.0.dfsg.1.orig/src/digitemp.h	2008-08-27 21:34:17.000000000 -0700
-+++ digitemp-3.6.0.dfsg.1/src/digitemp.h	2012-12-08 13:54:16.617161520 -0800
-@@ -19,7 +19,7 @@
+--- a/src/digitemp.h
++++ b/src/digitemp.h
+@@ -18,8 +18,8 @@
+    with this program; if not, write to the Free Software Foundation, Inc.,
     59 Temple Place - Suite 330, Boston, MA  02111-1307, USA
     ----------------------------------------------------------------------- */
- #define BANNER_1     "DigiTemp v3.5.0 Copyright 1996-2007 by Brian C. Lane\n"
+-#define BANNER_1     "DigiTemp v3.5.0 Copyright 1996-2007 by Brian C. Lane\n"
 -#define BANNER_2     "GNU Public License v2.0 - http://www.digitemp.com\n"
++#define BANNER_1     "DigiTemp v3.6.0 Copyright 1996-2007 by Brian C. Lane\n"
 +#define BANNER_2     "GNU General Public License v2.0 - http://www.digitemp.com\n"
  #define BANNER_3     "Compiled for %s\n\n"
  
