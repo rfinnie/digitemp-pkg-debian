@@ -21,10 +21,10 @@ LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
 
 override_dh_auto_build:
 	mkdir -p build-serial/src build-serial/userial/ds9097 build-serial/userial/ds9097u
-	$(MAKE) -C build-serial -f ../Makefile DEBCFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" LDFLAGS="$(LDFLAGS)" SRCDIR=.. ds9097 ds9097u
+	$(MAKE) -C build-serial -f ../Makefile CFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" LDFLAGS="$(LDFLAGS)" SRCDIR=.. ds9097 ds9097u
 
 	mkdir -p build-usb/src build-usb/userial/ds2490
-	$(MAKE) -C build-usb    -f ../Makefile DEBCFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" LDFLAGS="$(LDFLAGS)" SRCDIR=.. ds2490
+	$(MAKE) -C build-usb    -f ../Makefile CFLAGS="$(CFLAGS)" CPPFLAGS="$(CPPFLAGS)" LDFLAGS="$(LDFLAGS)" SRCDIR=.. ds2490
 
 override_dh_auto_install:
 	install -m 0755 -d debian/digitemp/usr/bin

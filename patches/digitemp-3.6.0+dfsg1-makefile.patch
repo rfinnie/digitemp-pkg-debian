@@ -1,24 +1,93 @@
-Debian-specific Makefile adjustments
+Makefile adjustments
 Patch author: Ryan Finnie <ryan@finnie.org>
 
-diff -ru digitemp-3.6.0.dfsg.1.orig/Makefile digitemp-3.6.0.dfsg.1/Makefile
---- digitemp-3.6.0.dfsg.1.orig/Makefile	2008-08-28 14:37:00.000000000 -0700
-+++ digitemp-3.6.0.dfsg.1/Makefile	2012-12-08 14:11:58.369579279 -0800
-@@ -11,8 +11,11 @@
+  * Allow CFLAGS to be applied on the command line
+  * Use LDFLAGS whe building the final binaries
+
+--- a/Makefile
++++ b/Makefile
+@@ -11,8 +11,15 @@
  
  VERSION = 3.6.0
  
 -CC	= gcc
 -CFLAGS	= -I./src -I./userial -O2 -Wall # -g
-+SRCDIR	= .
++SRCDIR	= $(CURDIR)
 +VPATH	= $(SRCDIR)
 +
-+CFLAGS	= -I$(SRCDIR)/src -I$(SRCDIR)/userial
-+CFLAGS	+= $(DEBCFLAGS)
++# May be overridden by the command line
++CFLAGS = -O2 -Wall # -g
++
++# Mandatory additions to CFLAGS
++EXTRACFLAGS	= -I$(SRCDIR)/src -I$(SRCDIR)/userial
++override CFLAGS	+= $(EXTRACFLAGS)
  
  OBJS		=	src/digitemp.o src/device_name.o src/ds2438.o
  HDRS		= 	src/digitemp.h src/device_name.h
-@@ -116,13 +119,13 @@
+@@ -48,7 +55,7 @@
+ SYSTYPE := $(shell uname -s)
+ 
+ ifeq ($(SYSTYPE), Linux)
+-  CFLAGS += -DLINUX
++  EXTRACFLAGS += -DLINUX
+ 
+   # Set LOCK to yes for serial port locking support
+   LOCK = no
+@@ -56,44 +63,44 @@
+ endif
+ 
+ ifneq (, $(findstring CYGWIN,$(SYSTYPE)))
+-  CFLAGS += -DCYGWIN
++  EXTRACFLAGS += -DCYGWIN
+   LIBS   += -static -static-libgcc
+ endif
+ 
+ ifeq ($(SYSTYPE), SunOS)
+-  CFLAGS += -DSOLARIS
++  EXTRACFLAGS += -DSOLARIS
+   LIBS   += -lposix4
+ endif
+ 
+ ifeq ($(SYSTYPE), FreeBSD)
+-  CFLAGS += -DFREEBSD
++  EXTRACFLAGS += -DFREEBSD
+ endif
+ 
+ ifeq ($(SYSTYPE), OpenBSD)
+-  CFLAGS += -DOPENBSD
++  EXTRACFLAGS += -DOPENBSD
+ endif
+ 
+ # Untested, but should work.
+ ifeq ($(SYSTYPE), NetBSD)
+-  CFLAGS += -DNETBSD
++  EXTRACFLAGS += -DNETBSD
+ endif
+ 
+ ifeq ($(SYSTYPE), Darwin)
+-  CFLAGS += -DDARWIN
++  EXTRACFLAGS += -DDARWIN
+ endif
+ 
+ ifeq ($(SYSTYPE), AIX)
+-  CFLAGS += -DAIX
++  EXTRACFLAGS += -DAIX
+ endif
+ 
+ ifeq ($(LOCK), yes)
+-  CFLAGS += -DLOCKDEV
++  EXTRACFLAGS += -DLOCKDEV
+   LIBS   += -llockdev
+ endif
+ 
+ 
+ # USB specific flags
+-ds2490:  CFLAGS += -DOWUSB
++ds2490:  EXTRACFLAGS += -DOWUSB
+ ds2490:  LIBS   += -lusb
+ 
+ 
+@@ -116,13 +123,13 @@
  
  # Build the Linux executable
  ds9097:		$(OBJS) $(HDRS) $(ONEWIREOBJS) $(ONEWIREHDRS) $(DS9097OBJS)
