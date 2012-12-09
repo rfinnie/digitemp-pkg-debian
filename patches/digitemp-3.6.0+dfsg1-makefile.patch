@@ -35,13 +35,3 @@ diff -ru digitemp-3.6.0.dfsg.1.orig/Makefile digitemp-3.6.0.dfsg.1/Makefile
  
  
  # Clean up the object files and the sub-directory for distributions
-@@ -132,6 +135,9 @@
- 		rm -f core *.asc 
- 		rm -f perl/*~ rrdb/*~ .digitemprc digitemp-$(VERSION)-1.spec
- 		rm -rf digitemp-$(VERSION)
-+		rm -f digitemp_DS9097
-+		rm -f digitemp_DS9097U
-+		rm -f digitemp_DS2490
- 
- # Sign the binaries using gpg (www.gnupg.org)
- # My key is available from www.brianlane.com
