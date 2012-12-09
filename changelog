@@ -1,10 +1,13 @@
 digitemp (3.6.0+dfsg1-1) UNRELEASED; urgency=low
 
-  * Digitemp 3.6.0 (binaries removed)
+  * Digitemp 3.6.0 (binaries removed) (Closes: #579313)
   * Add hardening compilation
   * Add README.source, explaining tarball rebuild
   * Remove XS-Dm-Upload-Allowed (no longer used)
   * Version control debian/ (bzr)
+  * Turn off optimizations on AMD64 to avoid breaking DS2490
+    (Closes: #585431) (LP: #452177)
+  * Flush logs when running non-interactive (Closes: #691069)
 
  -- Ryan Finnie <ryan@finnie.org>  Sat, 08 Dec 2012 13:36:06 -0800
 

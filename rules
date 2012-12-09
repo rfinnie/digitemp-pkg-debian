@@ -4,8 +4,15 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+# Turn off optimizations on AMD64 to avoid breaking DS2490
+# (Debian Bug #585431, LP: #452177)
+ifneq (,$(filter amd64xxx,$(DEB_HOST_ARCH_CPU)))
+	DEB_CFLAGS_MAINT_STRIP="-O2"
+	DEB_CFLAGS_MAINT_PREPEND="-O0"
+endif
+
 CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
-CFLAGS:=$(shell dpkg-buildflags --get CFLAGS)
+CFLAGS:=$(shell DEB_CFLAGS_MAINT_STRIP="$(DEB_CFLAGS_MAINT_STRIP)" DEB_CFLAGS_MAINT_PREPEND="$(DEB_CFLAGS_MAINT_PREPEND)" dpkg-buildflags --get CFLAGS)
 CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS)
 LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS)
 
