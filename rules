@@ -42,3 +42,4 @@ override_dh_auto_clean:
 	rm -rf build-serial
 	rm -rf build-usb
 	$(MAKE) clean
+	dh_clean
