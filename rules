@@ -6,7 +6,7 @@
 
 # Turn off optimizations on AMD64 to avoid breaking DS2490
 # (Debian Bug #585431, LP: #452177)
-ifneq (,$(filter amd64xxx,$(DEB_HOST_ARCH_CPU)))
+ifneq (,$(filter amd64,$(DEB_HOST_ARCH_CPU)))
 	DEB_CFLAGS_MAINT_STRIP="-O2"
 	DEB_CFLAGS_MAINT_PREPEND="-O0"
 endif
