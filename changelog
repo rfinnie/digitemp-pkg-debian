@@ -1,3 +1,10 @@
+digitemp (3.6.0+dfsg1-2) unstable; urgency=low
+
+  * Replace lockdev usage with flock (Closes: #728018)
+  * Bump standards version to 3.9.4, no change
+
+ -- Ryan Finnie <ryan@finnie.org>  Sat, 09 Nov 2013 21:40:03 +0000
+
 digitemp (3.6.0+dfsg1-1) unstable; urgency=low
 
   * Digitemp 3.6.0 (binaries removed) (Closes: #579313)
