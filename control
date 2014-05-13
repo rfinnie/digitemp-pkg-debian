@@ -3,7 +3,7 @@ Section: electronics
 Priority: optional
 Maintainer: Ryan Finnie <ryan@finnie.org>
 Build-Depends: debhelper (>= 7.0.50~), libusb-dev
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 Homepage: http://www.digitemp.com
 Vcs-Browser: https://code.launchpad.net/~fo0bar/digitemp/digitemp-pkg-debian
 Vcs-Bzr: http://bazaar.launchpad.net/~fo0bar/digitemp/digitemp-pkg-debian

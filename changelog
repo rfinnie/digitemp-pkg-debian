@@ -1,3 +1,11 @@
+digitemp (3.6.0+dfsg1-3) unstable; urgency=low
+
+  * Fix SetBaudCOM conflicting parameter types (Closes: #748036)
+  * Add lintian override for hardening-no-fortify-functions
+  * Bump standards version to 3.9.5, no change
+
+ -- Ryan Finnie <ryan@finnie.org>  Tue, 13 May 2014 18:45:33 +0000
+
 digitemp (3.6.0+dfsg1-2) unstable; urgency=low
 
   * Replace lockdev usage with flock (Closes: #728018)
