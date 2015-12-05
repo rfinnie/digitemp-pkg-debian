@@ -1,3 +1,9 @@
+digitemp (3.6.0+dfsg1-5) UNRELEASED; urgency=medium
+
+  * Platform handling adjustments; fix FTBFS on Hurd/kFreeBSD
+
+ -- Ryan Finnie <ryan@finnie.org>  Thu, 03 Dec 2015 23:20:58 +0000
+
 digitemp (3.6.0+dfsg1-4) unstable; urgency=medium
 
   * Update Vcs location

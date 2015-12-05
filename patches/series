@@ -7,3 +7,4 @@ digitemp-3.6.0+dfsg1-format-security.patch
 digitemp-3.6.0+dfsg1-flock.patch
 digitemp-3.6.0+dfsg1-setbaudcom.patch
 digitemp-3.6.0+dfsg1-usb-reset-status.patch
+digitemp-3.6.0+dfsg1-platform.patch
