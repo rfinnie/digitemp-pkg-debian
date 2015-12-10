@@ -2,7 +2,7 @@ Source: digitemp
 Section: electronics
 Priority: optional
 Maintainer: Ryan Finnie <ryan@finnie.org>
-Build-Depends: debhelper (>= 7.0.50~), libusb-dev
+Build-Depends: debhelper (>= 9), libusb-dev
 Standards-Version: 3.9.6
 Homepage: http://www.digitemp.com
 Vcs-Browser: https://github.com/rfinnie/digitemp-pkg-debian

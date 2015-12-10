@@ -1,5 +1,6 @@
 digitemp (3.6.0+dfsg1-6) UNRELEASED; urgency=medium
 
+  * Use debhelper level 9
   * Convert debian/copyright to dep5
 
  -- Ryan Finnie <ryan@finnie.org>  Thu, 10 Dec 2015 20:35:27 +0000
