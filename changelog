@@ -1,3 +1,9 @@
+digitemp (3.6.0+dfsg1-6) UNRELEASED; urgency=medium
+
+  * Convert debian/copyright to dep5
+
+ -- Ryan Finnie <ryan@finnie.org>  Thu, 10 Dec 2015 20:35:27 +0000
+
 digitemp (3.6.0+dfsg1-5) unstable; urgency=medium
 
   * Platform handling adjustments; fix FTBFS on Hurd/kFreeBSD

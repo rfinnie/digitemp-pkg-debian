@@ -1,9 +1,0 @@
-The base tarball has been modified from upstream to remove compiled 
-binaries.  The following files and directories have been removed:
-
-digitemp_DS2490
-digitemp_DS9097
-digitemp_DS9097U
-win/digitemp_DS9097U.exe
-win/digitemp_DS9097.exe
-win/
