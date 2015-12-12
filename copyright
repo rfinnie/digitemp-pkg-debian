@@ -1,19 +1,12 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: DigiTemp
 Upstream-Contact: Brian C. Lane <bcl@brianlane.com>
-Source:
- Tarballs: http://www.digitemp.com/software.shtml
- DVCS: https://github.com/bcl/digitemp/
+Source: https://github.com/bcl/digitemp/
  .
- The base tarball has been modified from upstream to remove compiled
- binaries.  The following files and directories have been removed:
- .
- digitemp_DS2490
- digitemp_DS9097
- digitemp_DS9097U
- win/digitemp_DS9097U.exe
- win/digitemp_DS9097.exe
- win/
+ Downstream tarballs are built from Git (upstream-signed) tags.
+ Tarballs are also available from the author site at
+ http://www.digitemp.com/software.shtml but include (non-DFSG) compiled
+ binaries.
 
 Files: *
 Copyright: 1996-2007, Brian C. Lane

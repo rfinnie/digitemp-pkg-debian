@@ -1,4 +1,0 @@
-# Binaries do not make use of FORTIFY_SOURCE-protected glibc routines
-digitemp binary: hardening-no-fortify-functions usr/bin/digitemp_DS2490
-digitemp binary: hardening-no-fortify-functions usr/bin/digitemp_DS9097
-digitemp binary: hardening-no-fortify-functions usr/bin/digitemp_DS9097U

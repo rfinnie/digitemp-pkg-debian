@@ -1,3 +1,4 @@
+# See uscan(1) for format
 version=3
-opts="dversionmangle=s/\+dfsg\d+$//" \
-http://www.digitemp.com/software.shtml .*?/digitemp-([\d.]*?)\.tar\.gz
+https://github.com/bcl/digitemp/releases \
+  /bcl/digitemp/archive/v(.*).tar\.gz

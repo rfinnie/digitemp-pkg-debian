@@ -1,9 +1,14 @@
-digitemp (3.6.0+dfsg1-6) UNRELEASED; urgency=medium
+digitemp (3.7.1-1) UNRELEASED; urgency=medium
 
+  * New upstream release
+    * Upstream tarball is now DFSG-free
+    * No remaining downstream patches
+    * AMD64 -O0 hack is no longer needed
+    * debian/watch: Monitor github tags
   * Use debhelper level 9
   * Convert debian/copyright to dep5
 
- -- Ryan Finnie <ryan@finnie.org>  Thu, 10 Dec 2015 20:35:27 +0000
+ -- Ryan Finnie <ryan@finnie.org>  Sat, 12 Dec 2015 22:36:53 +0000
 
 digitemp (3.6.0+dfsg1-5) unstable; urgency=medium
 
