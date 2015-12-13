@@ -1,3 +1,12 @@
+digitemp (3.7.1-2) unstable; urgency=medium
+
+  * [REGRESSION] Re-add VPATH-based compilation via build-serial and
+    build-usb to allow digitemp_DS2490 to work correctly.  This method
+    was removed in 3.7.1-1 but is still needed.  Description of problem
+    can be found at https://bugzilla.redhat.com/show_bug.cgi?id=517284
+
+ -- Ryan Finnie <ryan@finnie.org>  Sun, 13 Dec 2015 07:13:07 +0000
+
 digitemp (3.7.1-1) unstable; urgency=medium
 
   * New upstream release

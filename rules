@@ -8,13 +8,17 @@
 	dh $@
 
 override_dh_auto_build:
-	$(MAKE) ds9097 ds9097u ds2490
+	mkdir -p build-serial/src build-serial/userial/ds9097 build-serial/userial/ds9097u
+	$(MAKE) -C build-serial -f ../Makefile SRCDIR=.. ds9097 ds9097u
+
+	mkdir -p build-usb/src build-usb/userial/ds2490
+	$(MAKE) -C build-usb    -f ../Makefile SRCDIR=.. ds2490
 
 override_dh_auto_install:
 	install -m 0755 -d debian/digitemp/usr/bin
-	install -m 0755 digitemp_DS9097 debian/digitemp/usr/bin
-	install -m 0755 digitemp_DS9097U debian/digitemp/usr/bin
-	install -m 0755 digitemp_DS2490 debian/digitemp/usr/bin
+	install -m 0755 build-serial/digitemp_DS9097 debian/digitemp/usr/bin
+	install -m 0755 build-serial/digitemp_DS9097U debian/digitemp/usr/bin
+	install -m 0755 build-usb/digitemp_DS2490 debian/digitemp/usr/bin
 
 override_dh_installman:
 	dh_installman digitemp.1
@@ -23,6 +27,7 @@ override_dh_installman:
 	dh_link usr/share/man/man1/digitemp.1.gz usr/share/man/man1/digitemp_DS2490.1.gz
 
 override_dh_auto_clean:
+	rm -rf build-serial
+	rm -rf build-usb
 	$(MAKE) clean
-	$(RM) digitemp_DS9097 digitemp_DS9097U digitemp_DS2490
 	dh_clean
