@@ -1,3 +1,16 @@
+digitemp (3.7.2-1) unstable; urgency=medium
+
+  [ Helmut Grohne ]
+  * Fix FTCBFS: Let dh_auto_build pass cross tools to make. (Closes: #914824)
+
+  [ Ryan Finnie ]
+  * New upstream release
+  * Bump standards version to 4.2.1
+  * Fix depends-on-obsolete-package suggests:
+    mysql-server => default-mysql-server
+
+ -- Ryan Finnie <ryan@finnie.org>  Wed, 28 Nov 2018 06:43:30 +0000
+
 digitemp (3.7.1-2) unstable; urgency=medium
 
   * [REGRESSION] Re-add VPATH-based compilation via build-serial and

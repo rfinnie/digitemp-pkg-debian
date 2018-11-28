@@ -3,14 +3,14 @@ Section: electronics
 Priority: optional
 Maintainer: Ryan Finnie <ryan@finnie.org>
 Build-Depends: debhelper (>= 9), libusb-dev
-Standards-Version: 3.9.6
+Standards-Version: 4.2.1
 Homepage: http://www.digitemp.com
 Vcs-Browser: https://github.com/rfinnie/digitemp-pkg-debian
 Vcs-Git: https://github.com/rfinnie/digitemp-pkg-debian
 
 Package: digitemp
 Architecture: any
-Suggests: rrdtool, python, mysql-server
+Suggests: rrdtool, python, default-mysql-server
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: read temperature sensors in a 1-Wire net
  Digitemp is a program that reads data coming from a 1-Wire network using
